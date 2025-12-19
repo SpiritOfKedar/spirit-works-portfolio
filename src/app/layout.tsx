@@ -11,6 +11,8 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { BackToTop } from "@/components/back-to-top";
 import { CommandPalette } from "@/components/command-palette";
 import { KeyboardHint } from "@/components/keyboard-hint";
+import { TimeGreeting } from "@/components/time-greeting";
+import { EasterEgg } from "@/components/easter-egg";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -69,16 +71,17 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             <ScrollProgress />
+            <TimeGreeting />
             <DotGrid />
             {children}
             <Navbar />
             <BackToTop />
             <CommandPalette />
             <KeyboardHint />
+            <EasterEgg />
           </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
-

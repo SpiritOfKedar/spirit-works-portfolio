@@ -7,6 +7,10 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { DotGrid } from "@/components/dot-grid";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { BackToTop } from "@/components/back-to-top";
+import { CommandPalette } from "@/components/command-palette";
+import { KeyboardHint } from "@/components/keyboard-hint";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -64,12 +68,17 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
+            <ScrollProgress />
             <DotGrid />
             {children}
             <Navbar />
+            <BackToTop />
+            <CommandPalette />
+            <KeyboardHint />
           </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

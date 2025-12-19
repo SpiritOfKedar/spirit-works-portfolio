@@ -13,6 +13,8 @@ import { CommandPalette } from "@/components/command-palette";
 import { KeyboardHint } from "@/components/keyboard-hint";
 import { TimeGreeting } from "@/components/time-greeting";
 import { EasterEgg } from "@/components/easter-egg";
+import { PageLoader } from "@/components/page-loader";
+import { CopyEmail } from "@/components/copy-email";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -70,12 +72,14 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
+            <PageLoader />
             <ScrollProgress />
             <TimeGreeting />
             <DotGrid />
             {children}
             <Navbar />
             <BackToTop />
+            <CopyEmail email="workingspirit45@gmail.com" />
             <CommandPalette />
             <KeyboardHint />
             <EasterEgg />
@@ -85,3 +89,4 @@ export default function RootLayout({
     </html>
   );
 }
+

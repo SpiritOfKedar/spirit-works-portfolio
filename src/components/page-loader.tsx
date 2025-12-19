@@ -7,10 +7,22 @@ export const PageLoader: React.FC = () => {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
+        // Check if we've already shown the loader in this session
+        const hasLoaded = sessionStorage.getItem("portfolio-loaded");
+
+        if (hasLoaded) {
+            setIsLoading(false);
+            setIsVisible(false);
+            return;
+        }
+
         const timer = setTimeout(() => {
             setIsLoading(false);
-            setTimeout(() => setIsVisible(false), 1000);
-        }, 1200);
+            setTimeout(() => {
+                setIsVisible(false);
+                sessionStorage.setItem("portfolio-loaded", "true");
+            }, 500); // Reduced fade out time
+        }, 800); // Reduced initial display time
 
         return () => clearTimeout(timer);
     }, []);
@@ -19,11 +31,11 @@ export const PageLoader: React.FC = () => {
 
     return (
         <div
-            className={`fixed inset-0 z-[10000] flex items-center justify-center ${isLoading ? "opacity-100 scale-100" : "opacity-0 scale-110"
+            className={`fixed inset-0 z-[10000] flex items-center justify-center ${isLoading ? "opacity-100 scale-100 loader-failsafe-animation" : "opacity-0 scale-110"
                 }`}
             style={{
                 background: "hsl(var(--background))",
-                transition: "opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1)",
+                transition: "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
         >
             {/* Noise texture overlay */}
@@ -177,6 +189,8 @@ export const PageLoader: React.FC = () => {
           0%, 100% { transform: translate(-50%, -50%) translateY(0); }
           50% { transform: translate(-50%, -50%) translateY(-20px); }
         }
+
+
       `}</style>
         </div>
     );

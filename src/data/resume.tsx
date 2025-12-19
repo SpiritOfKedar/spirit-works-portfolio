@@ -11,7 +11,7 @@ export const DATA = {
     "IT Engineering Student passionate about building web applications. Currently learning and creating with React, Next.js, and TypeScript.",
   summary:
     "I'm a final year B.E. Information Technology student at [Dr. D. Y. Patil Institute of Technology, Pune](/#education). I enjoy building modern web applications and exploring new technologies. When I'm not coding, you can find me learning about system design or contributing to open source projects.",
-  avatarUrl: "/me.png",
+  avatarUrl: "/berserk.jpg",
   skills: [
     "React",
     "Next.js",

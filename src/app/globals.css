@@ -142,3 +142,13 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
+
+@keyframes loader-failsafe {
+  0% { opacity: 1; pointer-events: auto; }
+  90% { opacity: 1; pointer-events: auto; }
+  100% { opacity: 0; pointer-events: none; visibility: hidden; }
+}
+
+.loader-failsafe-animation {
+  animation: loader-failsafe 0.5s linear 4s forwards !important;
+}

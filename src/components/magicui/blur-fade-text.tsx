@@ -49,7 +49,11 @@ const BlurFadeText = ({
                 delay: delay + i * characterDelay,
                 ease: "easeOut",
               }}
-              className={cn("inline-block", className)}
+              whileHover={{
+                scale: 1.2,
+                transition: { duration: 0.2 },
+              }}
+              className={cn("inline-block cursor-default", className)}
               style={{ width: char.trim() === "" ? "0.2em" : "auto" }}
             >
               {char}

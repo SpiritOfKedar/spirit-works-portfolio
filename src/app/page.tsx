@@ -1,6 +1,7 @@
 
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { WavingHand } from "@/components/waving-hand";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -18,12 +19,19 @@ export default function Page() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-              />
+              <div className="flex flex-wrap items-center">
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-roblox"
+                  yOffset={8}
+                  animateByCharacter={true}
+                  characterDelay={0.04}
+                  text={`Hi, I'm ${DATA.name.split(" ")[0]} `}
+                />
+                <BlurFade delay={BLUR_FADE_DELAY + 0.5}>
+                  <WavingHand />
+                </BlurFade>
+              </div>
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}

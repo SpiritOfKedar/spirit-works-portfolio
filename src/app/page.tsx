@@ -97,7 +97,7 @@ export default function Page() {
         </div>
       </section>
       <section id="projects">
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-8 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -115,11 +115,13 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+
+          {/* Project Cards */}
+          <div className="max-w-[800px] mx-auto space-y-6">
             {DATA.projects.map((project, id) => (
               <BlurFade
                 key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 12 + id * 0.1}
               >
                 <ProjectCard
                   href={project.href}
@@ -139,7 +141,7 @@ export default function Page() {
       </section>
 
       <section id="coding-profiles">
-        <div className="space-y-12 w-full py-12">
+        <div className="space-y-4 w-full py-4">
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <CodingProfiles />
           </BlurFade>

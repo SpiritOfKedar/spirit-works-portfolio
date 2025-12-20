@@ -75,6 +75,16 @@ export const CommandPalette: React.FC = () => {
             },
         },
         {
+            id: "coding-profiles",
+            label: "Coding Profiles",
+            description: "View my LeetCode & GFG stats",
+            icon: <Code className="w-4 h-4" />,
+            action: () => {
+                document.getElementById("coding-profiles")?.scrollIntoView({ behavior: "smooth" });
+                setIsOpen(false);
+            },
+        },
+        {
             id: "contact",
             label: "Contact",
             description: "Get in touch with me",
@@ -193,13 +203,13 @@ export const CommandPalette: React.FC = () => {
                                         onClick={cmd.action}
                                         onMouseEnter={() => setSelectedIndex(index)}
                                         className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-colors text-left ${index === selectedIndex
-                                                ? "bg-foreground/5"
-                                                : "hover:bg-foreground/[0.03]"
+                                            ? "bg-foreground/5"
+                                            : "hover:bg-foreground/[0.03]"
                                             }`}
                                     >
                                         <span className={`p-2 rounded-lg transition-colors ${index === selectedIndex
-                                                ? "bg-foreground text-background"
-                                                : "bg-foreground/5 text-muted-foreground"
+                                            ? "bg-foreground text-background"
+                                            : "bg-foreground/5 text-muted-foreground"
                                             }`}>
                                             {cmd.icon}
                                         </span>

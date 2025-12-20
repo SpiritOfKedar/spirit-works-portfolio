@@ -89,6 +89,60 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Nerva.ai",
+      href: "https://github.com/SpiritOfKedar/Nerva.ai",
+      dates: "Nov 2024 - Present",
+      active: true,
+      description:
+        "An AI-powered mental health companion providing empathetic support and guidance for emotional well-being. Features intelligent conversations, mood tracking, and therapeutic activities powered by Google Gemini.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "Express.js",
+        "MongoDB",
+        "Google Gemini AI",
+        "TailwindCSS",
+        "Framer Motion",
+        "Inngest",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/SpiritOfKedar/Nerva.ai",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Spirit Search",
+      href: "https://github.com/SpiritOfKedar/spiritsearch",
+      dates: "Oct 2024 - Present",
+      active: true,
+      description:
+        "An intelligent AI-powered deep research platform that conducts comprehensive, iterative research on any topic. Uses multi-stage pipelines to analyze, synthesize, and generate detailed reports with citations.",
+      technologies: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Groq API",
+        "Exa AI",
+        "Vercel AI SDK",
+        "TailwindCSS 4",
+        "Zustand",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/SpiritOfKedar/spiritsearch",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
       title: "Personal Portfolio",
       href: "https://kedarbargule.dev",
       dates: "Dec 2024 - Present",
@@ -137,60 +191,6 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/kedarbargule/task-manager",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Nerva.ai",
-      href: "https://github.com/SpiritOfKedar/Nerva.ai",
-      dates: "Nov 2024 - Present",
-      active: true,
-      description:
-        "An AI-powered mental health companion providing empathetic support and guidance for emotional well-being. Features intelligent conversations, mood tracking, and therapeutic activities powered by Google Gemini.",
-      technologies: [
-        "Next.js 15",
-        "React 19",
-        "Express.js",
-        "MongoDB",
-        "Google Gemini AI",
-        "TailwindCSS",
-        "Framer Motion",
-        "Inngest",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/SpiritOfKedar/Nerva.ai",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Spirit Search",
-      href: "https://github.com/SpiritOfKedar/spiritsearch",
-      dates: "Oct 2024 - Present",
-      active: true,
-      description:
-        "An intelligent AI-powered deep research platform that conducts comprehensive, iterative research on any topic. Uses multi-stage pipelines to analyze, synthesize, and generate detailed reports with citations.",
-      technologies: [
-        "Next.js 16",
-        "React 19",
-        "TypeScript",
-        "Groq API",
-        "Exa AI",
-        "Vercel AI SDK",
-        "TailwindCSS 4",
-        "Zustand",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/SpiritOfKedar/spiritsearch",
           icon: <Icons.github className="size-3" />,
         },
       ],

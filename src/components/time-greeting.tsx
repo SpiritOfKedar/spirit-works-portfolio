@@ -42,16 +42,9 @@ export const TimeGreeting: React.FC = () => {
 
     const content = (
         <div
-            className="animate-in fade-in slide-in-from-top-2 duration-500"
-            style={{
-                position: 'fixed',
-                top: '16px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                zIndex: 9999,
-            }}
+            className="animate-in fade-in slide-in-from-top-2 duration-500 fixed inset-x-0 top-0 z-[9999] flex justify-center pt-2 sm:pt-4 pointer-events-none"
         >
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground/5 border border-border/50 text-xs text-muted-foreground backdrop-blur-sm">
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-foreground/5 border border-border/50 text-[10px] sm:text-xs text-muted-foreground backdrop-blur-sm shadow-sm pointer-events-auto">
                 {greeting.icon}
                 <span>{greeting.text}</span>
             </div>

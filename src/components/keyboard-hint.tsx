@@ -17,7 +17,7 @@ export const KeyboardHint: React.FC = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-6 left-6 z-40 animate-in fade-in slide-in-from-left-2 duration-500">
+        <div className="hidden sm:block fixed bottom-6 left-6 z-40 animate-in fade-in slide-in-from-left-2 duration-500">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border text-sm text-muted-foreground shadow-sm">
                 <span>Press</span>
                 <div className="flex items-center gap-0.5">

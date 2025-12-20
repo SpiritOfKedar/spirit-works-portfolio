@@ -23,7 +23,7 @@ export const CopyEmail: React.FC<CopyEmailProps> = ({ email }) => {
     return (
         <button
             onClick={handleCopy}
-            className="fixed bottom-20 right-6 z-40 flex items-center gap-2 px-3 py-2 rounded-full bg-background border border-border shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="hidden sm:flex fixed bottom-20 right-6 z-40 items-center gap-2 px-3 py-2 rounded-full bg-background border border-border shadow-lg hover:shadow-xl transition-all duration-300 group"
             title="Copy email address"
         >
             <Mail className="w-4 h-4 text-muted-foreground" />

@@ -104,9 +104,10 @@ const DockIcon = ({
       ref={ref}
       style={{ width }}
       className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
+        "flex aspect-square cursor-pointer items-center justify-center rounded-full transition-all active:scale-90 active:opacity-70",
         className
       )}
+      whileTap={{ scale: 0.85 }}
       {...props}
     >
       {children}

@@ -37,7 +37,7 @@ export const BackToTop: React.FC = () => {
     return (
         <button
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 z-50 group animate-in fade-in slide-in-from-bottom-4 duration-300"
+            className="hidden sm:block fixed bottom-6 right-6 z-50 group animate-in fade-in slide-in-from-bottom-4 duration-300"
             aria-label="Back to top"
         >
             {/* Progress ring */}

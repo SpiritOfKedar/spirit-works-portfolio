@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Markdown from "react-markdown";
 import { ContactSection } from "@/components/contact-section";
+import { CodingProfiles } from "@/components/coding-profiles";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -137,6 +138,13 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="coding-profiles">
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 14}>
+            <CodingProfiles />
+          </BlurFade>
+        </div>
+      </section>
 
       <ContactSection
         delay={BLUR_FADE_DELAY * 16}

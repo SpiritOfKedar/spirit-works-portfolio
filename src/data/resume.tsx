@@ -64,7 +64,7 @@ export const DATA = {
   education: [
     {
       school: "Dr. D. Y. Patil Institute of Technology, Pimpri, Pune-18",
-      href: "https://dypatil.edu",
+      href: "https://engg.dypvp.edu.in/",
       degree: "Bachelor of Engineering (Information Technology)",
       logoUrl: "/dpu.jpeg",
       start: "2023",
@@ -72,7 +72,7 @@ export const DATA = {
     },
     {
       school: "Government Polytechnic Amravati",
-      href: "https://gpa.ac.in",
+      href: "https://www.gpamravati.ac.in/gpamravati_new/",
       degree: "Diploma in Chemical Engineering",
       logoUrl: "/gpa.jpeg",
       start: "2020",
@@ -80,7 +80,7 @@ export const DATA = {
     },
     {
       school: "Savitribai Phule Vidyalaya, Kalamb",
-      href: "#",
+      href: "https://schools.org.in/osmanabad/27290204120/savitribai-phule-highschool-kallamb.html",
       degree: "Secondary Education",
       logoUrl: "",
       start: "2019",

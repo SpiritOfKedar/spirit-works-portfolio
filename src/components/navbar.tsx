@@ -10,7 +10,7 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Download } from "lucide-react";
+import { Download, Flame } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -78,6 +78,24 @@ export default function Navbar() {
             </TooltipTrigger>
             <TooltipContent>
               <p>Download Resume</p>
+            </TooltipContent>
+          </Tooltip>
+        </DockIcon>
+        <DockIcon>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href="/extras"
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "size-12"
+                )}
+              >
+                <Flame className="size-4" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Extras</p>
             </TooltipContent>
           </Tooltip>
         </DockIcon>

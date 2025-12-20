@@ -152,3 +152,18 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 .loader-failsafe-animation {
   animation: loader-failsafe 0.5s linear 4s forwards !important;
 }
+
+/* Project card gradient animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}

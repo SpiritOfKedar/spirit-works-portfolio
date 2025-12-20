@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronRightIcon } from "lucide-react";
@@ -44,15 +44,27 @@ export const ResumeCard = ({
       className="block cursor-pointer"
       onClick={handleClick}
     >
-      <Card className="flex">
+      <div
+        className={cn(
+          "flex p-4 rounded-xl",
+          // Glassmorphism effect
+          "bg-white/[0.03] dark:bg-white/[0.03]",
+          "backdrop-blur-xl backdrop-saturate-150",
+          // Transitions
+          "transition-all duration-300 ease-out",
+          // Hover effects
+          "hover:bg-white/[0.08] dark:hover:bg-white/[0.08]",
+          "hover:shadow-xl hover:shadow-black/10"
+        )}
+      >
         <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
+          <Avatar className="size-12 m-auto bg-white/[0.08] dark:bg-white/[0.08] backdrop-blur-sm">
             <AvatarImage
               src={logoUrl}
               alt={altText}
               className="object-contain"
             />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
+            <AvatarFallback className="bg-white/[0.08] text-foreground">{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
         <div className="flex-grow ml-4 items-center flex-col group">
@@ -61,11 +73,17 @@ export const ResumeCard = ({
               <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
                 {title}
                 {badges && (
-                  <span className="inline-flex gap-x-1">
+                  <span className="inline-flex gap-x-1 ml-2">
                     {badges.map((badge, index) => (
                       <Badge
                         variant="secondary"
-                        className="align-middle text-xs"
+                        className={cn(
+                          "align-middle text-xs",
+                          "bg-white/[0.08] dark:bg-white/[0.08]",
+                          "backdrop-blur-sm",
+                          "text-foreground/70",
+                          "border-0"
+                        )}
                         key={index}
                       >
                         {badge}
@@ -84,7 +102,7 @@ export const ResumeCard = ({
                 {period}
               </div>
             </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+            {subtitle && <div className="font-sans text-xs text-muted-foreground/70">{subtitle}</div>}
           </CardHeader>
           {description && (
             <motion.div
@@ -98,13 +116,13 @@ export const ResumeCard = ({
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-2 text-xs sm:text-sm text-muted-foreground/70"
             >
               {description}
             </motion.div>
           )}
         </div>
-      </Card>
+      </div>
     </Link>
   );
 };

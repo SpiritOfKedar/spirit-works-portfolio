@@ -1,7 +1,8 @@
 "use client";
 
 import BlurFade from "@/components/magicui/blur-fade";
-import { Tv, BookOpen, Film, Star, Heart } from "lucide-react";
+import { Tv, BookOpen, Film, Star, Heart, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -79,133 +80,284 @@ const EXTRAS_DATA = {
     ],
 };
 
+// Animated section header component
+const SectionHeader = ({
+    icon: Icon,
+    title,
+    delay
+}: {
+    icon: any;
+    title: string;
+    delay: number;
+}) => (
+    <BlurFade delay={delay}>
+        <motion.div
+            className="flex items-center gap-3 mb-6"
+            whileHover={{ x: 4 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            <motion.div
+                className="p-2 rounded-xl bg-foreground/5 backdrop-blur-sm border border-border/50"
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
+            >
+                <Icon className="w-5 h-5 text-foreground" />
+            </motion.div>
+            <h2 className="text-xl font-bold">{title}</h2>
+        </motion.div>
+    </BlurFade>
+);
+
+// Animated anime card
+const AnimeCard = ({ anime, index }: { anime: typeof EXTRAS_DATA.anime[0]; index: number }) => (
+    <BlurFade delay={BLUR_FADE_DELAY * 3 + index * 0.08}>
+        <motion.div
+            className="group relative overflow-hidden rounded-xl bg-foreground/[0.02] backdrop-blur-sm border border-border/50"
+            whileHover={{ y: -8, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            {/* Glow effect on hover */}
+            <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                    background: "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1), transparent 70%)",
+                }}
+            />
+
+            <div className="aspect-[3/4] overflow-hidden relative">
+                <motion.img
+                    src={anime.image}
+                    alt={anime.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.4 }}
+                />
+                {/* Rating badge */}
+                <motion.div
+                    className="absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border/50"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                >
+                    <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                    <span className="text-xs font-medium">{anime.rating}</span>
+                </motion.div>
+            </div>
+
+            <div className="p-3 space-y-1.5 relative">
+                <h3 className="text-sm font-semibold line-clamp-1 group-hover:text-foreground/80 transition-colors duration-300">
+                    {anime.title}
+                </h3>
+                <p className="text-[11px] text-muted-foreground line-clamp-1">{anime.genre}</p>
+            </div>
+        </motion.div>
+    </BlurFade>
+);
+
+// Animated book card
+const BookCard = ({ book, index }: { book: typeof EXTRAS_DATA.books[0]; index: number }) => (
+    <BlurFade delay={BLUR_FADE_DELAY * 6 + index * 0.08}>
+        <motion.div
+            className="group flex items-center gap-4 p-4 rounded-xl bg-foreground/[0.02] backdrop-blur-sm border border-border/50 overflow-hidden relative"
+            whileHover={{ x: 8, scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            {/* Animated gradient line on left */}
+            <motion.div
+                className="absolute left-0 top-0 bottom-0 w-0.5 bg-foreground/20"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+            />
+
+            <motion.div
+                className="w-12 h-16 rounded-lg bg-foreground/5 backdrop-blur-sm border border-border/50 flex items-center justify-center flex-shrink-0 relative overflow-hidden"
+                whileHover={{ rotate: [-2, 2, -2, 0] }}
+                transition={{ duration: 0.4 }}
+            >
+                <BookOpen className="w-6 h-6 text-muted-foreground" />
+                {/* Shimmer effect */}
+                <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                />
+            </motion.div>
+
+            <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-semibold truncate group-hover:text-foreground/80 transition-colors duration-300">
+                    {book.title}
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5">{book.author}</p>
+                <div className="flex items-center gap-2 mt-2">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-foreground/5 border border-border/50 text-muted-foreground">
+                        {book.genre}
+                    </span>
+                    <motion.span
+                        className={`text-[10px] px-2 py-0.5 rounded-full border ${book.status === "Reading"
+                                ? "bg-yellow-500/10 border-yellow-500/20 text-yellow-600 dark:text-yellow-400"
+                                : "bg-green-500/10 border-green-500/20 text-green-600 dark:text-green-400"
+                            }`}
+                        animate={book.status === "Reading" ? {
+                            scale: [1, 1.05, 1],
+                        } : {}}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                    >
+                        {book.status === "Reading" && "📖 "}{book.status}
+                    </motion.span>
+                </div>
+            </div>
+        </motion.div>
+    </BlurFade>
+);
+
+// Animated movie card
+const MovieCard = ({ movie, index }: { movie: typeof EXTRAS_DATA.movies[0]; index: number }) => (
+    <BlurFade delay={BLUR_FADE_DELAY * 9 + index * 0.08}>
+        <motion.div
+            className="group flex items-center justify-between p-4 rounded-xl bg-foreground/[0.02] backdrop-blur-sm border border-border/50 overflow-hidden relative"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+            {/* Background glow on hover */}
+            <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                    background: "radial-gradient(circle at 0% 50%, rgba(255, 255, 255, 0.03), transparent 50%)",
+                }}
+            />
+
+            <div className="flex items-center gap-4 relative">
+                <motion.div
+                    className="w-12 h-12 rounded-xl bg-foreground/5 backdrop-blur-sm border border-border/50 flex items-center justify-center flex-shrink-0"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <Film className="w-6 h-6 text-muted-foreground" />
+                </motion.div>
+                <div>
+                    <h3 className="text-sm font-semibold group-hover:text-foreground/80 transition-colors duration-300">
+                        {movie.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">{movie.year} • {movie.genre}</p>
+                </div>
+            </div>
+
+            <motion.div
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-foreground/5 backdrop-blur-sm border border-border/50 relative"
+                whileHover={{ scale: 1.1 }}
+            >
+                <motion.div
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ repeat: Infinity, duration: 2, delay: index * 0.3 }}
+                >
+                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                </motion.div>
+                <span className="text-sm font-bold">{movie.rating}</span>
+            </motion.div>
+        </motion.div>
+    </BlurFade>
+);
+
 export default function ExtrasPage() {
     return (
-        <main className="flex flex-col min-h-[100dvh] space-y-10">
+        <main className="flex flex-col min-h-[100dvh] space-y-12">
             {/* Header */}
             <section id="extras-header">
                 <BlurFade delay={BLUR_FADE_DELAY}>
-                    <div className="space-y-2">
-                        <div className="inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                            <Heart className="w-3.5 h-3.5" />
-                            Personal Favorites
-                        </div>
-                        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                            Beyond Code
-                        </h1>
-                        <p className="text-muted-foreground max-w-[600px]">
+                    <div className="space-y-4">
+                        <motion.div
+                            className="inline-flex items-center gap-2 rounded-full bg-foreground/5 border border-border/50 backdrop-blur-sm px-4 py-1.5 text-sm"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        >
+                            <motion.div
+                                animate={{ rotate: [0, 15, -15, 0] }}
+                                transition={{ repeat: Infinity, duration: 3 }}
+                            >
+                                <Heart className="w-4 h-4 text-muted-foreground" />
+                            </motion.div>
+                            <span className="font-medium text-muted-foreground">
+                                Personal Favorites
+                            </span>
+                        </motion.div>
+
+                        <motion.h1
+                            className="text-3xl sm:text-4xl font-bold tracking-tighter"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                        >
+                            Beyond Code{" "}
+                            <motion.span
+                                className="inline-block"
+                                animate={{ rotate: [0, 10, -10, 0] }}
+                                transition={{ repeat: Infinity, duration: 2, delay: 1 }}
+                            >
+                                ✨
+                            </motion.span>
+                        </motion.h1>
+
+                        <motion.p
+                            className="text-muted-foreground max-w-[600px] text-sm sm:text-base"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
                             A glimpse into my interests outside of programming. Animes that inspired me,
                             books that shaped my thinking, and movies I absolutely love.
-                        </p>
+                        </motion.p>
                     </div>
                 </BlurFade>
             </section>
 
             {/* Anime Section */}
             <section id="anime">
-                <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                    <div className="flex items-center gap-2 mb-4">
-                        <Tv className="w-5 h-5 text-pink-500" />
-                        <h2 className="text-xl font-bold">Anime</h2>
-                    </div>
-                </BlurFade>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <SectionHeader icon={Tv} title="Anime" delay={BLUR_FADE_DELAY * 2} />
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {EXTRAS_DATA.anime.map((anime, index) => (
-                        <BlurFade key={anime.title} delay={BLUR_FADE_DELAY * 3 + index * 0.05}>
-                            <div className="group relative overflow-hidden rounded-lg border border-border bg-card hover:border-foreground/20 transition-all duration-300">
-                                <div className="aspect-[3/4] overflow-hidden">
-                                    <img
-                                        src={anime.image}
-                                        alt={anime.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                    />
-                                </div>
-                                <div className="p-2 space-y-1">
-                                    <h3 className="text-xs sm:text-sm font-medium line-clamp-1">{anime.title}</h3>
-                                    <div className="flex items-center gap-1">
-                                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                                        <span className="text-xs text-muted-foreground">{anime.rating}/10</span>
-                                    </div>
-                                    <p className="text-[10px] text-muted-foreground line-clamp-1">{anime.genre}</p>
-                                </div>
-                            </div>
-                        </BlurFade>
+                        <AnimeCard key={anime.title} anime={anime} index={index} />
                     ))}
                 </div>
             </section>
 
             {/* Books Section */}
             <section id="books">
-                <BlurFade delay={BLUR_FADE_DELAY * 5}>
-                    <div className="flex items-center gap-2 mb-4">
-                        <BookOpen className="w-5 h-5 text-blue-500" />
-                        <h2 className="text-xl font-bold">Books</h2>
-                    </div>
-                </BlurFade>
+                <SectionHeader icon={BookOpen} title="Books" delay={BLUR_FADE_DELAY * 5} />
                 <div className="grid gap-3">
                     {EXTRAS_DATA.books.map((book, index) => (
-                        <BlurFade key={book.title} delay={BLUR_FADE_DELAY * 6 + index * 0.05}>
-                            <div className="flex items-center gap-4 p-3 rounded-lg border border-border bg-card hover:border-foreground/20 transition-all duration-300">
-                                <div className="w-10 h-14 sm:w-12 sm:h-16 rounded bg-gradient-to-br from-foreground/10 to-foreground/5 flex items-center justify-center flex-shrink-0">
-                                    <BookOpen className="w-5 h-5 text-muted-foreground" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <h3 className="text-sm font-medium truncate">{book.title}</h3>
-                                    <p className="text-xs text-muted-foreground">{book.author}</p>
-                                    <div className="flex items-center gap-2 mt-1">
-                                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-foreground/5 text-muted-foreground">
-                                            {book.genre}
-                                        </span>
-                                        <span className={`text-[10px] px-1.5 py-0.5 rounded ${book.status === "Reading"
-                                                ? "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400"
-                                                : "bg-green-500/10 text-green-600 dark:text-green-400"
-                                            }`}>
-                                            {book.status}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </BlurFade>
+                        <BookCard key={book.title} book={book} index={index} />
                     ))}
                 </div>
             </section>
 
             {/* Movies Section */}
             <section id="movies">
-                <BlurFade delay={BLUR_FADE_DELAY * 8}>
-                    <div className="flex items-center gap-2 mb-4">
-                        <Film className="w-5 h-5 text-purple-500" />
-                        <h2 className="text-xl font-bold">Movies</h2>
-                    </div>
-                </BlurFade>
+                <SectionHeader icon={Film} title="Movies" delay={BLUR_FADE_DELAY * 8} />
                 <div className="grid gap-3">
                     {EXTRAS_DATA.movies.map((movie, index) => (
-                        <BlurFade key={movie.title} delay={BLUR_FADE_DELAY * 9 + index * 0.05}>
-                            <div className="flex items-center justify-between p-3 rounded-lg border border-border bg-card hover:border-foreground/20 transition-all duration-300">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
-                                        <Film className="w-5 h-5 text-purple-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-sm font-medium">{movie.title}</h3>
-                                        <p className="text-xs text-muted-foreground">{movie.year} • {movie.genre}</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                    <span className="text-sm font-medium">{movie.rating}</span>
-                                </div>
-                            </div>
-                        </BlurFade>
+                        <MovieCard key={movie.title} movie={movie} index={index} />
                     ))}
                 </div>
             </section>
 
             {/* Footer note */}
             <BlurFade delay={BLUR_FADE_DELAY * 11}>
-                <p className="text-center text-sm text-muted-foreground py-8">
-                    ✨ Always open to recommendations!
-                </p>
+                <motion.div
+                    className="text-center py-8"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <motion.p
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground px-4 py-2 rounded-full bg-foreground/5 border border-border/50 backdrop-blur-sm"
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <Sparkles className="w-4 h-4" />
+                        Always open to recommendations!
+                    </motion.p>
+                </motion.div>
             </BlurFade>
         </main>
     );

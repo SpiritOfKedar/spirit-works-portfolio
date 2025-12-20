@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X, Send, Mail, User, MessageSquare, Sparkles } from "lucide-react";
+import { X, Send, Mail, User, MessageSquare, Zap } from "lucide-react";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -71,46 +71,47 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             />
 
             {/* Modal */}
-            <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg px-4 animate-in fade-in-0 zoom-in-95 duration-200">
-                <div className="relative bg-background border border-border rounded-2xl shadow-2xl overflow-hidden">
-                    {/* Decorative gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 pointer-events-none" />
+            <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm px-4 animate-in fade-in-0 zoom-in-95 duration-200">
+                {/* Glass UI modal container */}
+                <div className="relative bg-white/[0.03] dark:bg-white/[0.03] backdrop-blur-xl backdrop-saturate-150 rounded-xl shadow-2xl overflow-hidden border border-white/10">
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 pointer-events-none" />
 
                     {/* Header */}
-                    <div className="relative px-6 pt-6 pb-4 border-b border-border/50">
+                    <div className="relative px-4 pt-4 pb-3 border-b border-white/10">
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 rounded-xl bg-foreground/5">
-                                    <Sparkles className="w-5 h-5 text-foreground" />
+                            <div className="flex items-center gap-2">
+                                <div className="p-1.5 rounded-lg bg-white/10 backdrop-blur-sm">
+                                    <Zap className="w-4 h-4 text-foreground" />
                                 </div>
                                 <div>
-                                    <h2 className="text-xl font-semibold tracking-tight">
+                                    <h2 className="text-base font-semibold tracking-tight">
                                         Let&apos;s Connect
                                     </h2>
-                                    <p className="text-sm text-muted-foreground">
+                                    <p className="text-xs text-muted-foreground">
                                         I&apos;d love to hear from you
                                     </p>
                                 </div>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="p-2 rounded-xl hover:bg-foreground/5 transition-colors"
+                                className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
                             >
-                                <X className="w-5 h-5 text-muted-foreground" />
+                                <X className="w-4 h-4 text-muted-foreground" />
                             </button>
                         </div>
                     </div>
 
                     {/* Form */}
-                    <form onSubmit={handleSubmit} className="relative p-6 space-y-4">
+                    <form onSubmit={handleSubmit} className="relative p-4 space-y-3">
                         {submitted ? (
-                            <div className="py-12 text-center space-y-4 animate-in fade-in zoom-in duration-300">
-                                <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 flex items-center justify-center">
-                                    <Send className="w-8 h-8 text-green-500" />
+                            <div className="py-8 text-center space-y-3 animate-in fade-in zoom-in duration-300">
+                                <div className="w-12 h-12 mx-auto rounded-full bg-green-500/10 flex items-center justify-center backdrop-blur-sm">
+                                    <Send className="w-6 h-6 text-green-500" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-medium">Opening Email Client...</h3>
-                                    <p className="text-sm text-muted-foreground mt-1">
+                                    <h3 className="text-base font-medium">Opening Email Client...</h3>
+                                    <p className="text-xs text-muted-foreground mt-1">
                                         Your email app should open shortly
                                     </p>
                                 </div>
@@ -118,9 +119,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                         ) : (
                             <>
                                 {/* Name Field */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium flex items-center gap-2">
-                                        <User className="w-4 h-4 text-muted-foreground" />
+                                <div className="space-y-1.5">
+                                    <label className="text-xs font-medium flex items-center gap-1.5">
+                                        <User className="w-3 h-3 text-muted-foreground" />
                                         Name
                                     </label>
                                     <input
@@ -130,14 +131,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                                         onChange={handleChange}
                                         required
                                         placeholder="Your name"
-                                        className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-border/50 focus:border-foreground/20 focus:ring-2 focus:ring-foreground/10 outline-none transition-all placeholder:text-muted-foreground/50"
+                                        className="w-full px-3 py-2 text-sm rounded-lg bg-white/[0.05] backdrop-blur-sm border border-white/10 focus:border-white/20 focus:ring-2 focus:ring-white/10 outline-none transition-all placeholder:text-muted-foreground/50"
                                     />
                                 </div>
 
                                 {/* Email Field */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium flex items-center gap-2">
-                                        <Mail className="w-4 h-4 text-muted-foreground" />
+                                <div className="space-y-1.5">
+                                    <label className="text-xs font-medium flex items-center gap-1.5">
+                                        <Mail className="w-3 h-3 text-muted-foreground" />
                                         Email
                                     </label>
                                     <input
@@ -147,14 +148,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                                         onChange={handleChange}
                                         required
                                         placeholder="your@email.com"
-                                        className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-border/50 focus:border-foreground/20 focus:ring-2 focus:ring-foreground/10 outline-none transition-all placeholder:text-muted-foreground/50"
+                                        className="w-full px-3 py-2 text-sm rounded-lg bg-white/[0.05] backdrop-blur-sm border border-white/10 focus:border-white/20 focus:ring-2 focus:ring-white/10 outline-none transition-all placeholder:text-muted-foreground/50"
                                     />
                                 </div>
 
                                 {/* Subject Field */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium flex items-center gap-2">
-                                        <Sparkles className="w-4 h-4 text-muted-foreground" />
+                                <div className="space-y-1.5">
+                                    <label className="text-xs font-medium flex items-center gap-1.5">
+                                        <Zap className="w-3 h-3 text-muted-foreground" />
                                         Subject
                                     </label>
                                     <input
@@ -163,14 +164,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                                         value={formData.subject}
                                         onChange={handleChange}
                                         placeholder="What's this about?"
-                                        className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-border/50 focus:border-foreground/20 focus:ring-2 focus:ring-foreground/10 outline-none transition-all placeholder:text-muted-foreground/50"
+                                        className="w-full px-3 py-2 text-sm rounded-lg bg-white/[0.05] backdrop-blur-sm border border-white/10 focus:border-white/20 focus:ring-2 focus:ring-white/10 outline-none transition-all placeholder:text-muted-foreground/50"
                                     />
                                 </div>
 
                                 {/* Message Field */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium flex items-center gap-2">
-                                        <MessageSquare className="w-4 h-4 text-muted-foreground" />
+                                <div className="space-y-1.5">
+                                    <label className="text-xs font-medium flex items-center gap-1.5">
+                                        <MessageSquare className="w-3 h-3 text-muted-foreground" />
                                         Message
                                     </label>
                                     <textarea
@@ -178,9 +179,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        rows={4}
+                                        rows={3}
                                         placeholder="Your message..."
-                                        className="w-full px-4 py-3 rounded-xl bg-foreground/5 border border-border/50 focus:border-foreground/20 focus:ring-2 focus:ring-foreground/10 outline-none transition-all placeholder:text-muted-foreground/50 resize-none"
+                                        className="w-full px-3 py-2 text-sm rounded-lg bg-white/[0.05] backdrop-blur-sm border border-white/10 focus:border-white/20 focus:ring-2 focus:ring-white/10 outline-none transition-all placeholder:text-muted-foreground/50 resize-none"
                                     />
                                 </div>
 
@@ -188,19 +189,19 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full py-3 px-4 rounded-xl bg-foreground text-background font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
+                                    className="w-full py-2 px-3 text-sm rounded-lg bg-white/15 backdrop-blur-sm border border-white/20 text-foreground font-medium flex items-center justify-center gap-2 hover:bg-white/25 transition-all disabled:opacity-50"
                                 >
                                     {isSubmitting ? (
-                                        <div className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+                                        <div className="w-4 h-4 border-2 border-foreground/30 border-t-foreground rounded-full animate-spin" />
                                     ) : (
                                         <>
-                                            <Send className="w-4 h-4" />
+                                            <Send className="w-3.5 h-3.5" />
                                             Send Message
                                         </>
                                     )}
                                 </button>
 
-                                <p className="text-xs text-center text-muted-foreground">
+                                <p className="text-[10px] text-center text-muted-foreground">
                                     This will open your default email client
                                 </p>
                             </>
@@ -215,4 +216,3 @@ export const ContactModal: React.FC<ContactModalProps> = ({
 };
 
 export default ContactModal;
-

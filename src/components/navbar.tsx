@@ -65,9 +65,8 @@ export default function Navbar() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1xxL217uFaH_sS4ni4KmCJZMbwL_OjqT-/view?usp=sharing"
                 target="_blank"
-                download
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
                   "size-12"

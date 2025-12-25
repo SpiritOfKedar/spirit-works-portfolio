@@ -91,9 +91,9 @@ export function ProjectCard({
             <Image
               src={image}
               alt={title}
-              width={500}
-              height={300}
-              className="h-48 w-full overflow-hidden object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              width={800}
+              height={450}
+              className="h-64 w-full overflow-hidden object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
           </div>

@@ -89,6 +89,86 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Spirit Checker",
+      href: "https://spirit-checker.vercel.app/",
+      dates: "Dec 2024 - Present",
+      active: true,
+      description:
+        "ATS Resume Checker with microservices architecture. Go backend with Fiber handles PDF/DOCX parsing, TF-IDF similarity scoring, and skill extraction. Generates weighted compatibility scores with actionable feedback.",
+      technologies: [
+        "Go",
+        "Fiber",
+        "Next.js 15",
+        "TypeScript",
+        "TailwindCSS",
+        "Docker",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://spirit-checker.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/SpiritOfKedar/spirit-checker",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/spirit-checker-preview.png",
+      video: "",
+    },
+    {
+      title: "Spirit Player",
+      href: "https://github.com/SpiritOfKedar/spirit-player",
+      dates: "Dec 2024 - Present",
+      active: true,
+      description:
+        "Lightweight Linux video player built with C++17, Qt 6 (QML), and libmpv. Hardware-accelerated rendering via custom QQuickFramebufferObject with OpenGL sync. Supports Wayland/X11, subtitles, and resume playback.",
+      technologies: [
+        "C++17",
+        "Qt 6",
+        "QML",
+        "libmpv",
+        "OpenGL",
+        "CMake",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/SpiritOfKedar/spirit-player",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/spirit-player-preview.png",
+      video: "",
+    },
+    {
+      title: "Alphonse",
+      href: "https://github.com/SpiritOfKedar/alphonse",
+      dates: "Dec 2024 - Present",
+      active: true,
+      description:
+        "LSM-Tree storage engine in Go achieving 731k writes/sec. Implements WAL with CRC32 checksums, skip-list MemTable, SSTables with Bloom filters (1% FPR), and tiered compaction. 2,700 lines of code.",
+      technologies: [
+        "Go",
+        "LSM-Tree",
+        "WAL",
+        "Bloom Filter",
+        "Skip-List",
+        "Compaction",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/SpiritOfKedar/alphonse",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/alphonse-architecture.png",
+      video: "",
+    },
+    {
       title: "Nerva.ai",
       href: "https://github.com/SpiritOfKedar/Nerva.ai",
       dates: "Nov 2024 - Present",
@@ -107,94 +187,17 @@ export const DATA = {
       ],
       links: [
         {
+          type: "Website",
+          href: "https://nerva-ai-frontend.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
           type: "Source",
           href: "https://github.com/SpiritOfKedar/Nerva.ai",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Spirit Search",
-      href: "https://github.com/SpiritOfKedar/spiritsearch",
-      dates: "Oct 2024 - Present",
-      active: true,
-      description:
-        "An intelligent AI-powered deep research platform that conducts comprehensive, iterative research on any topic. Uses multi-stage pipelines to analyze, synthesize, and generate detailed reports with citations.",
-      technologies: [
-        "Next.js 16",
-        "React 19",
-        "TypeScript",
-        "Groq API",
-        "Exa AI",
-        "Vercel AI SDK",
-        "TailwindCSS 4",
-        "Zustand",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/SpiritOfKedar/spiritsearch",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Personal Portfolio",
-      href: "https://kedarbargule.dev",
-      dates: "Dec 2024 - Present",
-      active: true,
-      description:
-        "A modern, minimalist portfolio website built with Next.js 14, showcasing projects, skills, and professional experience with smooth animations and dark mode support.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Framer Motion",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://kedarbargule.dev",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/kedarbargule/portfolio",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Task Manager App",
-      href: "https://github.com/kedarbargule/task-manager",
-      dates: "Nov 2024 - Dec 2024",
-      active: true,
-      description:
-        "A full-stack task management application with real-time updates, user authentication, and collaborative features. Built with a focus on productivity and user experience.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/kedarbargule/task-manager",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
+      image: "/nerva-ai-preview.png",
       video: "",
     },
   ],

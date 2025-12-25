@@ -83,7 +83,7 @@ export function ProjectCard({
               playsInline
               className="pointer-events-none mx-auto h-48 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
         )}
         {image && (
@@ -95,7 +95,7 @@ export function ProjectCard({
               height={450}
               className="h-64 w-full overflow-hidden object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
         )}
       </Link>

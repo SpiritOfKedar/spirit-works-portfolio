@@ -6,7 +6,7 @@ import Link from "next/link";
 const BLUR_FADE_DELAY = 0.04;
 
 export const metadata = {
-    title: "Projects | Kedar Bargule",
+    title: "Projects",
     description: "Explore my portfolio of projects showcasing systems programming, web development, and AI applications.",
 };
 

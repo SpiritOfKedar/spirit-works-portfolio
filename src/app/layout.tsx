@@ -31,8 +31,8 @@ const fontRoblox = Fredoka({
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: "Spirit Works",
+    template: `%s | Spirit Works`,
   },
   description: DATA.description,
   openGraph: {

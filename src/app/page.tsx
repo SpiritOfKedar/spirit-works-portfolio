@@ -97,28 +97,22 @@ export default function Page() {
         </div>
       </section>
       <section id="projects">
-        <div className="space-y-8 w-full py-12">
+        <div className="space-y-6 w-full py-8">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  My Projects
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
-                </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple
-                  websites to complex web applications. Here are a few of my
-                  favorites.
-                </p>
-              </div>
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold">Featured Projects</h2>
+              <a
+                href="/projects"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+              >
+                View all projects →
+              </a>
             </div>
           </BlurFade>
 
-          {/* Project Cards */}
-          <div className="max-w-[800px] mx-auto space-y-6">
-            {DATA.projects.map((project, id) => (
+          {/* Show only first 2 projects */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {DATA.projects.slice(0, 2).map((project, id) => (
               <BlurFade
                 key={project.title}
                 delay={BLUR_FADE_DELAY * 12 + id * 0.1}

@@ -87,7 +87,7 @@ export default function RootLayout({
             {children}
             <Navbar />
             <BackToTop />
-            <CopyEmail email="workingspirit45@gmail.com" />
+            <CopyEmail email={DATA.contact.email} />
             <CommandPalette />
             <KeyboardHint />
             <EasterEgg />

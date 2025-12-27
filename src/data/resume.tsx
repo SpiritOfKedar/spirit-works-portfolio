@@ -30,7 +30,7 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
+    email: "contact@kedarworks.xyz",
     tel: "+123456789",
     social: {
       GitHub: {
@@ -53,7 +53,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:contact@kedarworks.xyz",
         icon: Icons.email,
         navbar: false,
       },

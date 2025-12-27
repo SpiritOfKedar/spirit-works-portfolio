@@ -145,7 +145,7 @@ export default function Page() {
       <ContactSection
         delay={BLUR_FADE_DELAY * 16}
         twitterUrl={DATA.contact.social.X.url}
-        email="workingspirit45@gmail.com"
+        email={DATA.contact.email}
       />
     </main>
   );

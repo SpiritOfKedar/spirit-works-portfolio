@@ -12,7 +12,7 @@ export const DATA = {
   summary:
     "I like building things from the ground up. Systems programming, full-stack apps, low-level stuff. When the code compiles, you'll find me deep in anime (Berserk is peak) or nerding out over system design.",
   avatarUrl: "/berserk.jpg",
-  resumeUrl: "https://drive.google.com/file/d/1GZPB1lWZO3cxzq5Yn7NLthZpkeSRYpFL/view?usp=drive_link",
+  resumeUrl: "https://drive.google.com/file/d/1GZPB1lWZO3cxzq5Yn7NLthZpkeSRYpFL/view?usp=sharing",
   skills: [
     "Go",
     "C++",

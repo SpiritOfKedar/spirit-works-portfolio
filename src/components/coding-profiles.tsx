@@ -68,13 +68,13 @@ export const CodingProfiles: React.FC = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                // Fetch LeetCode stats
-                const lcResponse = await fetch(
-                    "https://leetcode-stats-api.herokuapp.com/spirit45"
-                );
+                // Fetch LeetCode stats via our own API route
+                const lcResponse = await fetch("/api/leetcode");
                 if (lcResponse.ok) {
                     const lcData = await lcResponse.json();
-                    setLeetcode(lcData);
+                    if (!lcData.error) {
+                        setLeetcode(lcData);
+                    }
                 }
             } catch (error) {
                 console.error("Failed to fetch LeetCode stats:", error);

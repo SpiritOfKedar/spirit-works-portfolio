@@ -7,6 +7,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'em-content.zobj.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.myanimelist.net',
+      },
     ],
   },
 };

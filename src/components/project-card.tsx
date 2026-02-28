@@ -46,17 +46,16 @@ export function ProjectCard({
     <div
       className={cn(
         "group relative flex flex-col overflow-hidden h-full rounded-2xl",
-        // Glassmorphism effect
-        "bg-gradient-to-br from-white/[0.08] to-white/[0.02]",
-        "backdrop-blur-xl backdrop-saturate-150",
-        // Border glow
-        "border border-white/10",
+        // Theme-aware background
+        "bg-card dark:bg-white/[0.04]",
+        // Border
+        "border border-border/50 dark:border-white/10",
         // Transitions
         "transition-all duration-500 ease-out",
         // Hover effects
-        "hover:border-white/20",
-        "hover:bg-gradient-to-br hover:from-white/[0.12] hover:to-white/[0.04]",
-        "hover:shadow-2xl hover:shadow-primary/5",
+        "hover:border-border dark:hover:border-white/20",
+        "hover:bg-accent/50 dark:hover:bg-white/[0.08]",
+        "hover:shadow-lg dark:hover:shadow-2xl dark:hover:shadow-primary/5",
         "hover:-translate-y-1",
         className
       )}
@@ -134,14 +133,12 @@ export function ProjectCard({
               <Badge
                 className={cn(
                   "px-2.5 py-1 text-[11px] font-medium rounded-full",
-                  "bg-white/[0.06]",
-                  "backdrop-blur-sm",
-                  "text-foreground/70",
-                  "hover:bg-white/[0.12]",
+                  "bg-muted dark:bg-white/[0.06]",
+                  "text-muted-foreground",
+                  "hover:bg-accent dark:hover:bg-white/[0.12]",
                   "hover:text-foreground",
                   "transition-all duration-300",
-                  "border border-white/5 hover:border-white/10",
-                  // Staggered animation on hover
+                  "border border-border/50 dark:border-white/5 hover:border-border dark:hover:border-white/10",
                   "group-hover:translate-y-0"
                 )}
                 style={{
@@ -165,15 +162,14 @@ export function ProjectCard({
                 <Badge
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 text-xs font-medium rounded-full",
-                    "bg-white/[0.08]",
-                    "backdrop-blur-sm",
+                    "bg-muted dark:bg-white/[0.08]",
                     "text-foreground",
-                    "hover:bg-white/[0.15]",
+                    "hover:bg-accent dark:hover:bg-white/[0.15]",
                     "hover:scale-105",
                     "active:scale-95",
                     "transition-all duration-300",
-                    "border border-white/10 hover:border-white/20",
-                    "shadow-sm hover:shadow-lg"
+                    "border border-border/50 dark:border-white/10 hover:border-border dark:hover:border-white/20",
+                    "shadow-sm hover:shadow-md"
                   )}
                 >
                   {link.icon}

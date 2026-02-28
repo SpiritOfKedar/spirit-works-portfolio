@@ -47,24 +47,23 @@ export const ResumeCard = ({
       <div
         className={cn(
           "flex p-4 rounded-xl",
-          // Glassmorphism effect
-          "bg-white/[0.03] dark:bg-white/[0.03]",
-          "backdrop-blur-xl backdrop-saturate-150",
+          "bg-card dark:bg-white/[0.03]",
+          "border border-border/50",
           // Transitions
           "transition-all duration-300 ease-out",
           // Hover effects
-          "hover:bg-white/[0.08] dark:hover:bg-white/[0.08]",
-          "hover:shadow-xl hover:shadow-black/10"
+          "hover:bg-accent dark:hover:bg-white/[0.08]",
+          "hover:shadow-md dark:hover:shadow-xl dark:hover:shadow-black/10"
         )}
       >
         <div className="flex-none">
-          <Avatar className="size-12 m-auto bg-white/[0.08] dark:bg-white/[0.08] backdrop-blur-sm">
+          <Avatar className="size-12 m-auto bg-muted dark:bg-white/[0.08]">
             <AvatarImage
               src={logoUrl}
               alt={altText}
               className="object-contain"
             />
-            <AvatarFallback className="bg-white/[0.08] text-foreground">{altText[0]}</AvatarFallback>
+            <AvatarFallback className="bg-muted text-foreground">{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
         <div className="flex-grow ml-4 items-center flex-col group">
@@ -79,8 +78,7 @@ export const ResumeCard = ({
                         variant="secondary"
                         className={cn(
                           "align-middle text-xs",
-                          "bg-white/[0.08] dark:bg-white/[0.08]",
-                          "backdrop-blur-sm",
+                          "bg-muted dark:bg-white/[0.08]",
                           "text-foreground/70",
                           "border-0"
                         )}

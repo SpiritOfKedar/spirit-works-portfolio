@@ -35,7 +35,7 @@ const ProgressBar = ({
 }) => {
     const percentage = max > 0 ? (value / max) * 100 : 0;
     return (
-        <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+        <div className="h-1.5 w-full bg-muted dark:bg-white/10 rounded-full overflow-hidden">
             <div
                 className={`h-full rounded-full transition-all duration-500 ${color}`}
                 style={{ width: `${percentage}%` }}
@@ -109,7 +109,7 @@ export const CodingProfiles: React.FC = () => {
                     target="_blank"
                     className="block group"
                 >
-                    <div className="relative p-5 rounded-xl bg-white/[0.03] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:bg-white/[0.08] hover:shadow-xl hover:shadow-black/10 hover:-translate-y-0.5">
+                    <div className="relative p-5 rounded-xl bg-card dark:bg-white/[0.03] border border-border/50 transition-all duration-300 hover:bg-accent dark:hover:bg-white/[0.08] hover:shadow-md dark:hover:shadow-xl dark:hover:shadow-black/10 hover:-translate-y-0.5">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-3">
@@ -207,7 +207,7 @@ export const CodingProfiles: React.FC = () => {
                     target="_blank"
                     className="block group"
                 >
-                    <div className="relative p-5 rounded-xl bg-white/[0.03] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:bg-white/[0.08] hover:shadow-xl hover:shadow-black/10 hover:-translate-y-0.5">
+                    <div className="relative p-5 rounded-xl bg-card dark:bg-white/[0.03] border border-border/50 transition-all duration-300 hover:bg-accent dark:hover:bg-white/[0.08] hover:shadow-md dark:hover:shadow-xl dark:hover:shadow-black/10 hover:-translate-y-0.5">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-3">
@@ -244,7 +244,7 @@ export const CodingProfiles: React.FC = () => {
 
                             {/* Stats Grid */}
                             <div className="grid grid-cols-2 gap-3">
-                                <div className="p-3 rounded-lg bg-white/[0.05]">
+                                <div className="p-3 rounded-lg bg-muted/50 dark:bg-white/[0.05]">
                                     <div className="flex items-center gap-2 mb-1">
                                         <Flame className="w-4 h-4 text-orange-400" />
                                         <span className="text-xs text-muted-foreground">Current Streak</span>
@@ -254,7 +254,7 @@ export const CodingProfiles: React.FC = () => {
                                         <span className="text-xs text-muted-foreground ml-1">days</span>
                                     </p>
                                 </div>
-                                <div className="p-3 rounded-lg bg-white/[0.05]">
+                                <div className="p-3 rounded-lg bg-muted/50 dark:bg-white/[0.05]">
                                     <div className="flex items-center gap-2 mb-1">
                                         <Trophy className="w-4 h-4 text-yellow-400" />
                                         <span className="text-xs text-muted-foreground">Max Streak</span>
@@ -269,7 +269,7 @@ export const CodingProfiles: React.FC = () => {
                     </div>
                 </Link>
             </div >
-        </div >
+        </div>
     );
 };
 

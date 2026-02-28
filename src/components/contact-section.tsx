@@ -31,7 +31,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                 <Mail className="w-3.5 h-3.5" />
                                 Contact
                             </button>
-                            <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-5xl">
+                            <h2 className="text-2xl font-bold tracking-tighter sm:text-5xl">
                                 Get in Touch
                             </h2>
                             <p className="mx-auto max-w-[600px] text-sm sm:text-base text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -41,7 +41,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                                     href={twitterUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-blue-500 hover:underline"
+                                    className="text-foreground underline underline-offset-4 hover:text-foreground/80"
                                 >
                                     Twitter
                                 </a>
@@ -60,5 +60,3 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         </>
     );
 };
-
-export default ContactSection;

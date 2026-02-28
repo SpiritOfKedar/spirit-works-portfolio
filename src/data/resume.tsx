@@ -25,6 +25,33 @@ export const DATA = {
     "TailwindCSS",
     "Express.js",
   ],
+  skillCategories: [
+    {
+      category: "Languages",
+      icon: "code",
+      skills: ["Go", "C++", "TypeScript", "Python", "SQL", "JavaScript"],
+    },
+    {
+      category: "Frontend",
+      icon: "layout",
+      skills: ["React", "Next.js", "TailwindCSS", "Qt/QML", "HTML/CSS", "Framer Motion"],
+    },
+    {
+      category: "Backend",
+      icon: "server",
+      skills: ["Node.js", "Express.js", "Fiber", "REST APIs", "GraphQL"],
+    },
+    {
+      category: "Databases",
+      icon: "database",
+      skills: ["MongoDB", "PostgreSQL", "Redis", "SQL", "Prisma"],
+    },
+    {
+      category: "DevOps & Tools",
+      icon: "terminal",
+      skills: ["Docker", "Git", "Linux", "CMake", "CI/CD", "Nginx"],
+    },
+  ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/projects", icon: Code2, label: "Projects" },

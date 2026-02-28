@@ -5,11 +5,11 @@ import { WavingHand } from "@/components/waving-hand";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Markdown from "react-markdown";
 import { ContactSection } from "@/components/contact-section";
 import { CodingProfiles } from "@/components/coding-profiles";
+import { SkillsSection } from "@/components/skills-section";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -70,7 +70,6 @@ export default function Page() {
               delay={BLUR_FADE_DELAY * 8 + id * 0.05}
             >
               <ResumeCard
-                key={education.school}
                 href={education.href}
                 logoUrl={education.logoUrl}
                 altText={education.school}
@@ -83,17 +82,13 @@ export default function Page() {
         </div>
       </section>
       <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
+        <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
-            ))}
-          </div>
+          <BlurFade delay={BLUR_FADE_DELAY * 10}>
+            <SkillsSection categories={DATA.skillCategories} />
+          </BlurFade>
         </div>
       </section>
       <section id="projects">
@@ -119,7 +114,6 @@ export default function Page() {
               >
                 <ProjectCard
                   href={project.href}
-                  key={project.title}
                   title={project.title}
                   description={project.description}
                   dates={project.dates}
